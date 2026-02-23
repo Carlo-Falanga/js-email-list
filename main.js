@@ -1,13 +1,9 @@
 const ulEl = document.getElementById('list')
 
 
-
-
-
 let mailsArr = []
 
 for (let i = 0; i < 10; i++){
-
     axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
     .then(resp => {
         const apiMails = resp.data.response;
@@ -17,12 +13,10 @@ for (let i = 0; i < 10; i++){
             
             for (let i = 0; i < mailsArr.length; i++){
                 const mail = mailsArr[i]
-                console.log(mail);
+                const markup = `<li>${mail}</li>`
+                ulEl.innerHTML += markup
                 
             }
         }
-
     })
-
 }
-console.log(mailsArr);
