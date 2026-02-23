@@ -1,4 +1,28 @@
-axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-.then(resp => {
-    console.log(resp.data);
-})
+const ulEl = document.getElementById('list')
+
+
+
+
+
+let mailsArr = []
+
+for (let i = 0; i < 10; i++){
+
+    axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+    .then(resp => {
+        const apiMails = resp.data.response;
+        mailsArr.push(apiMails)
+
+        if (mailsArr.length === 10){
+            
+            for (let i = 0; i < mailsArr.length; i++){
+                const mail = mailsArr[i]
+                console.log(mail);
+                
+            }
+        }
+
+    })
+
+}
+console.log(mailsArr);
